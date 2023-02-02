@@ -11,4 +11,4 @@ import { NgModule } from '@angular/core';
     
   ]
 })
-export class LayoutCoreModule { }
+export class GreenwayLayoutCoreModule { }
