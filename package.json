@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build2": "ng build --project=@greenway/layout-core --configuration production && cd dist/greenway/layout-core/ && npm publish --access public",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
