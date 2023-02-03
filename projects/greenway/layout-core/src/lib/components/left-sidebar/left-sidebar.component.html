@@ -1,0 +1,45 @@
+<nav class="sidebar-element">
+
+    <div
+        class="background_mobile animated"
+        (click)="isOpen = false"
+        [ngClass]="{'background_mobile_active': isOpen}">
+    </div>
+
+    <button
+        mat-icon-button
+        (click)="isOpen = !isOpen"
+        class="button_menu_sidebar">
+          <mat-icon *ngIf="isOpen">menu</mat-icon>
+          <mat-icon *ngIf="!isOpen">menu_open</mat-icon>
+    </button>
+
+    <div class="sidebar animated" [ngClass]="{'sidebar_closed': isOpen}">
+      <div class="sidebar-content">
+
+        <ng-container *ngFor="let item of items">
+            <div *ngIf="item.type == typeTitle" class="module animated" [matTooltip]="item.title" matTooltipPosition="right" [matTooltipDisabled]="!isOpen">
+                <div *ngIf="item.image" class="image-container"><img [src]="item.image" [alt]="item.title" /></div>
+                <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+                <p>{{item.title}}</p>
+            </div>
+
+            <a *ngIf="item.type == typeLink"
+              [routerLink]="item.path"
+              routerLinkActive="router-link-active"
+              mat-button
+              class="nav-item"
+              #tooltip="matTooltip"
+              [matTooltip]="item.title"
+              matTooltipPosition="right"
+              [matTooltipDisabled]="!isOpen"
+              (click)="close()">
+              <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+              <span>{{ item.title }}</span>
+          </a>
+        </ng-container>
+
+      </div>
+    </div>
+
+</nav>
