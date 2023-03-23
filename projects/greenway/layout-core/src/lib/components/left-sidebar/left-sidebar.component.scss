@@ -442,6 +442,11 @@ $widthSidebarVault: 260px;
         background-color: var(--color_neutral_variant_90);
         font-weight: 600;
         font-size: 1.1em;
+        margin-top: 2em;
+
+        &:first-of-type{
+          margin-top: 0;
+        }
 
         .image-container{
           width: 24px;
